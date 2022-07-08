@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro&family=Fredoka&family=Poppins:wght@200&family=Ropa+Sans&display=swap');
+
+.formConatiner{
+    box-shadow:  17px 10px 9px 15px rgb(176,198,212);
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    font-family: 'Ropa Sans', sans-serif;
+    font-size: 1rem;
+    line-height: 34px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+.first{
+    padding: 10px;
+}
+
+::placeholder{
+    color: rgb(176,198,212);
+    font-family: 'Ropa Sans', sans-serif;
+  
+    font-size: 1rem;
+    line-height: 34px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+input{
+height: 2rem;
+padding: 0.5rem;
+border-radius: 10px;
+box-sizing: border-box;
+background: #FFFFFF;
+border: 1px solid #D9D9D9;
+box-shadow: 0px 0px 3px rgb(176,198,212) inset;
+}
+
+
+.names{
+    align-self: stretch;
+}
+
+.address{
+    height:200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+} 
+
+form{
+    width: 100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    background-color:white;
+   
+ 
+    width:100%;
+    padding: 1rem;
+}
+
+.buttons{
+    width: 60%;
+    display: flex;
+    flex-direction: rows;
+    justify-content: space-between;
+    padding:10px;
+    flex-wrap: wrap;
+    padding: 10px;
+    height:30px;
+    margin: 70px 0px;
+}
+
+.button1{
+ box-sizing: border-box;
+width: 140px;
+height: 40px;
+background: #7AA0B8;
+border: 1px solid #7AA0B8;
+border-radius: 10px;
+color:#FFFFFF;
+}
+
+.button2{
+    
+box-sizing: border-box;
+
+width: 140px;
+height: 40px;
+background: #FFFFFF;
+border: 2px solid #7AA0B8;
+border-radius: 10px;
+color: #7AA0B8 ;
+}
+
+.divbutton{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.button-in-body{
+    box-sizing: border-box;
+    width: 120px;
+    height: 30px;
+    background: #7AA0B8;
+    border: 1px solid #7AA0B8;
+    border-radius: 10px;
+    color:#FFFFFF;
+}

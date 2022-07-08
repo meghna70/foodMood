@@ -20,7 +20,7 @@ export default function Cuisine() {
 //else{
         const data = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&cuisine=${name}&number=15`)
         const recipes = await data.json();
-       // localStorage.setItem("cuisine", JSON.stringify(recipes.results));
+        //localStorage.setItem("cuisine", JSON.stringify(recipes.results));
         setCuisine(recipes.results);
      // }
     
@@ -70,6 +70,7 @@ const Card = styled(Link)`
   flex-direction: column;
   background-color:white;
   border-radius: 2rem;
+  text-decoration:none;
 
   img{
   margin-top: 2rem;
@@ -82,6 +83,7 @@ const Card = styled(Link)`
    }
 
    h4{
+    text-decoration: none;
     text-align: center;
     padding:1rem;
    }
@@ -101,7 +103,7 @@ const Grid = styled.div`
    grid-gap:3rem;
    @media (max-width:600px){
     grid-gap:2rem;
-    justify-items: center
+    justify-items: center;
   }
    `
 

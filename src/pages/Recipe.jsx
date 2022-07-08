@@ -27,7 +27,7 @@ export default function Recipe() {
         setInstructions(detailData.extendedIngredients);
         console.log(instructions);
       }
-
+    
       // const [section, setSection]= useState({students:["pengu", "tingu"],
       //                                        section:"" });
       //  const getSection = async()=>{
@@ -38,7 +38,7 @@ export default function Recipe() {
       //   }
             
          
-
+      console.log(active)
     useEffect(()=>{
           getDetail();
     }, [param.name]);
@@ -58,20 +58,28 @@ export default function Recipe() {
          <h3><BiDish/> Time : {detail.cookingMinutes+ detail.preparationMinutes + detail.readyInMinutes}  min</h3>
          <h3><FaUtensils/> Serving : {detail.servings}</h3>
          </FlexRow>
-        
-           
-         <ul>
+        <FlexRow>
+         <button className={active==="ingredients"? "active":""}  onClick={()=>setActive("ingredients") }> Ingredients </button>
+         <button className={active==="instructions"? "active":""} onClick={()=>setActive("instructions") }> Instructions </button>
+        </FlexRow>
+         
+        {active==="ingredients"? 
+              <ul>
               {instructions.map((recipe) =>{
-                      
                       return(
-                       
                         <li  key={recipe.id}>{recipe.original}</li>
-                          
-                       
                       );
               })}
-         </ul>    
-        
+         </ul>  
+              :
+          <div>
+                <h4>Summary: </h4>
+                <div dangerouslySetInnerHTML={{__html: detail.summary}}>
+                </div> 
+                <h4>Instruction:</h4>
+                <div dangerouslySetInnerHTML={{__html: detail.instructions}}></div>
+          </div>
+          }
          </RecipeDetails>
       </FlexCol>
   
@@ -85,18 +93,41 @@ export default function Recipe() {
 const FlexCol= styled.div`
     display:flex;
     margin: 80px 0px;
-    margin-bottom:0px;
+    margin-bottom:50px;
     background: linear-gradient( #FACB80, white);
+    background:#FBD8B0;
 `
 
 const FlexRow= styled.div`
     display:flex;
     align-items: flex-end;
+
+    button{
+      width: 30%;
+      height: 40px;
+      border-radius: 2rem;
+      border: 1px solid #B52B40;
+      background-color: rgba(255,255,255, 0.3);
+      font-family: Fredoka ;
+      margin: 20px 40px;
+      cursor:pointer;
+
+      &.active{
+        background-color: crimson;
+         
+      }
+      @media (max-width:600px){
+        width: 40%;
+        margin: 20px 10px;
+
+      }
+    }
 `
 
 const ImageDetails= styled.div`
   width: 30vw;
-  height: 100vh;
+
+  align-self:strech;
   position:relative; 
   box-shadow: 0 4px 20px 10px rgba(0,0,0,0.2);
   
@@ -134,7 +165,7 @@ const RecipeDetails= styled.div`
 display:flex;
 flex-direction: column;
 width: 50vw;
-        padding: 0rem 2rem;
+        padding: 2rem 2rem;
       
         h1{
           padding: 0 2rem;
@@ -145,11 +176,17 @@ width: 50vw;
           display:flex;
           align-items: center;
           padding: 0 2rem; 
+          font-size:15px;
           margin:0;
+          @media (max-width:600px){
+            padding: 0 0.4rem; 
+    
+          }
         }
         
         svg{
           margin:2px;
+          font-size:15px;
         }
        
 `

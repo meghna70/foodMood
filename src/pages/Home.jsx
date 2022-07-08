@@ -19,7 +19,7 @@ export default Home
 
 
 const AppW= styled.div`
-      margin: 0% 10%;
+      margin: 0% 0%;
 
       
       @media (max-width: 600px) {

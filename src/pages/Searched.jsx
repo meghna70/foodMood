@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import {  useParams  } from 'react-router-dom';
+import {  Link, useParams  } from 'react-router-dom';
 import styled from 'styled-components';
 
 export default function Searched() {
@@ -12,6 +12,7 @@ export default function Searched() {
     const api= await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&query=${value}`);
     const data= await api.json();
     setSearched(data.results);
+    
   }
 
   useEffect(()=>{
@@ -23,10 +24,11 @@ export default function Searched() {
     <Grid>
     {searched.map((recipe) =>{
          return(
-             <Card key={recipe.id}>
+             <Card key={recipe.id} to={'/recipe/'+ recipe.id}>
               <img src={recipe.image} alt={recipe.title}/>
               <Container>
               <h4>{recipe.title}</h4>
+              <h6>{recipe.summary}</h6>
               </Container>
              </Card>
             );
@@ -36,7 +38,7 @@ export default function Searched() {
 }
 
 
-const Card = styled.div`
+const Card = styled(Link)`
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   display:flex;
@@ -45,7 +47,7 @@ const Card = styled.div`
   flex-direction: column;
   background-color:white;
   border-radius: 2rem;
-
+  text-decoration: none;
 
   img{
   margin-top: 2rem;
@@ -54,12 +56,16 @@ const Card = styled.div`
  }
 
   a{
-     text-decoration:none;
+    text-decoration: none;
    }
 
    h4{
     text-align: center;
     padding:1rem;
+    text-decoration: none;
+   }
+   h6{
+    font-size: 10px;
    }
   &.hover{
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);

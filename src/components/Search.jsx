@@ -37,7 +37,8 @@ const FormStyle = styled.form`
      margin-top: 30px;
      border-radius : 1rem;
      position: relative;
-     left:28%;
+     left:2%;
+     bottom: 10%;
      width: 40%;
 
      input

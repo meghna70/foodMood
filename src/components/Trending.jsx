@@ -41,7 +41,7 @@ export default function Trending() {
               <h1>Trending</h1>
               <Splide
                   options={{
-                  perPage: matches ? 2 : 1,
+                  perPage: matches ? 2 : 3,
                   arrows:true,
                   pagiination:false,
                   drag:true,
@@ -86,7 +86,7 @@ export default function Trending() {
        height:18vw;
        width:18vw;
        background-color:yellow;
-    
+      
        border-radius:2rem;
        overflow:hidden;
        position: relative;
@@ -126,12 +126,13 @@ export default function Trending() {
 
        img{
         width:100%;
+        height:100%;
         object-fit:cover;
         border-radius:2rem;
         box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
         position:absolute;
         left:0;
-       
+        
 
         @media (max-width: 630px) {
           font-size:1em;

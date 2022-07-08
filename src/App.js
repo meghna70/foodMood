@@ -10,15 +10,17 @@ import NavBar from './pages/NavBar';
 function App() {
   return (
    
-      <AppW>
+    <div>
+        
         <BrowserRouter>
         <NavBar/>
-        <Search/>
+        <AppW>
         <Category/>
         <Pages/>
-        </BrowserRouter>
+        
       </AppW>
-   
+      </BrowserRouter>
+    </div>
    
   );
 }

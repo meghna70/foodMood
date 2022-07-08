@@ -9,11 +9,11 @@ export default function NavBar() {
   return (
    
      <NavContainer>
-        <h1>FoodMood</h1>
+        <Card to={'/'}><h1>FoodMood</h1></Card>
         <Search/>
         <div>
             {matches? 
-            <Link to={'/'}> Contact Us</Link>
+            <Card to={'/'}> Contact Us</Card>
             : <div></div>}
         </div>
      </NavContainer>
@@ -28,4 +28,25 @@ const NavContainer= styled.div`
         display: flex;
         justify-content: space-between;
         align-items: center;
+        text-decoration: none;
+`
+const Card = styled(Link)`
+  
+  text-decoration: none;
+
+  img{
+  margin-top: 2rem;
+  width:90%;
+  border-radius: 2rem;
+ }
+
+  a{
+    text-decoration: none;
+   }
+
+   h4{
+    text-align: center;
+    padding:1rem;
+    text-decoration: none;
+   }
 `

@@ -2,7 +2,7 @@ import Vegetarian from "../components/Vegetarian"
 import Trending from "../components/Trending"
 import Header from "../components/Header";
 import styled from "styled-components";
-
+import GlutenFree from "../components/GlutenFree";
 import React from 'react'
 
 function Home() {
@@ -11,6 +11,7 @@ function Home() {
         <Header/>
         <Trending/>
         <Vegetarian/>
+        <GlutenFree/>
     </AppW>
   )
 }

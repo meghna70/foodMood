@@ -28,10 +28,7 @@ export default function Category() {
             <GiChopsticks/>
             <h4>Indian</h4>
         </Slink>
-        <Slink  to={'/cuisine/greek'}>
-            <GiChopsticks/>
-            <h4>Greek</h4>
-        </Slink>
+       
      </List>
   )
 }
@@ -40,6 +37,7 @@ const List = styled.div`
       display: flex;
       justify-content: center;
       margin: 1rem 0rem;
+      flex-wrap: wrap;
 `
 
 const Slink = styled(NavLink)`

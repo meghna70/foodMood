@@ -5,7 +5,7 @@ import Search from './components/Search';
 import './index.css';
 import { BrowserRouter } from 'react-router-dom';
 import Header from './components/Header';
-import NavBar from './pages/NavBar';
+import NavBar from './components/NavBar';
 
 function App() {
   return (

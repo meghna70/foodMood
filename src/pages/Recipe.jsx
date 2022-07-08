@@ -7,11 +7,13 @@ import { createGlobalStyle } from "styled-components";
 import {FaStar, FaUtensils} from 'react-icons/fa';
 import {BiDish} from 'react-icons/bi';
 import { Splide, SplideSlide } from "@splidejs/react-splide";
+import { useMediaQuery } from 'usehooks-ts';
 import '@splidejs/react-splide/css';
 
 export default function Recipe() {
 
     const [detail, setDetail]= useState({});
+    const matches= useMediaQuery('(max-width: 600px)');
     const [instructions, setInstructions]= useState([]);
 
     const [active, setActive]= useState("instructions");
@@ -48,7 +50,8 @@ export default function Recipe() {
       <GlobalStyle/>
         <ImageDetails>
           <img src={detail.image}/>
-          <h1>{detail.title}</h1>
+          {matches? <div></div>:
+          <h1>{detail.title}</h1>}
           <Gradient/>
        </ImageDetails>
        <RecipeDetails>
@@ -96,6 +99,10 @@ const FlexCol= styled.div`
     margin-bottom:50px;
     background: linear-gradient( #FACB80, white);
     background:#FBD8B0;
+    @media(max-width: 600px){
+      flex-direction:column;
+      align-items: center;
+    }
 `
 
 const FlexRow= styled.div`
@@ -126,8 +133,6 @@ const FlexRow= styled.div`
 
 const ImageDetails= styled.div`
   width: 30vw;
-
-  align-self:strech;
   position:relative; 
   box-shadow: 0 4px 20px 10px rgba(0,0,0,0.2);
   
@@ -136,20 +141,28 @@ const ImageDetails= styled.div`
     height:100%;
     object-fit:cover;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+     
   }
   h1{
   position:absolute;
   z-index:10;
   left:30%;
-  bottom:20%;
+  bottom:50%;
   transform:translate(-50%,30%);
   color:white;
   width:40%;
   height:40%;
   margin: 1rem;
   font-weight:600;
+   
+
   }
-  
+
+  @media(max-width: 600px) {
+    width: 100%;
+    height: 10rem;
+  }
+ 
 `
 
 const Gradient = styled.div`
@@ -165,6 +178,7 @@ const RecipeDetails= styled.div`
 display:flex;
 flex-direction: column;
 width: 50vw;
+color:black;
         padding: 2rem 2rem;
       
         h1{
@@ -188,7 +202,9 @@ width: 50vw;
           margin:2px;
           font-size:15px;
         }
-       
+@media(max-width:600px){
+        width: 80%;
+      }
 `
 
 const Card = styled.div`

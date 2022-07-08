@@ -6,30 +6,31 @@ import '@splidejs/react-splide/css';
 import { useMediaQuery } from 'usehooks-ts';
 import { Link } from "react-router-dom";
 
-export default function Vegetarian() {
+export default function GlutenFree() {
 
   const matches = useMediaQuery('(min-width: 768px)')
-  const [Veggie, setVeggie]= useState([]);
+  const [gluten, setGluten]= useState([]);
 
    useEffect( () => {
-    getVeggie();
+    getGluten();
    } , [])
 
-  const getVeggie= async()=>{
+  const getGluten= async()=>{
 
-     const check = localStorage.getItem("Veggie")
+     const check = localStorage.getItem("gluten")
 
       if(check){
-        setVeggie(JSON.parse(check));
+        setGluten(JSON.parse(check));
       }
       else{
         
      const api= await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=9&diet=vegetarian`);
      const data= await api.json();
 
-     localStorage.setItem("Veggie", JSON.stringify(data.recipes))
+     localStorage.setItem("gluten", JSON.stringify(data.recipes))
      console.log(data);
-     setVeggie(data.recipes);
+     console.log("here");
+     setGluten(data.recipes)
       }
   }
   return (
@@ -37,16 +38,16 @@ export default function Vegetarian() {
       
             <Wrapper>
              <GlobalStyle/>
-              <h1>Vegetarian options</h1>
+              <h1>Gluten Free</h1>
               <Splide
                   options={{
-                  perPage:  3,
+                  perPage: matches ? 2 : 3,
                   arrows:true,
                   pagiination:false,
                   drag:true,
                   gap:'0.5rem'}}
               >
-              {Veggie.map((recipe) =>{
+              {gluten.map((recipe) =>{
                       
                       return(
                         <SplideSlide key={recipe.id}>
@@ -54,7 +55,7 @@ export default function Vegetarian() {
                             <Link to={'/recipe/'+ recipe.id}>
                               <p>{recipe.title}</p>
                               <img src={recipe.image} alt={recipe.title}/>
-                              <Gradient/>
+                             <Gradient/>
                               </Link>
                             </Card>
                         </SplideSlide>
@@ -67,7 +68,6 @@ export default function Vegetarian() {
   )
       }
 
- 
       const GlobalStyle = createGlobalStyle`
       body{
         font-family: 'Fredoka', sans-serif;
@@ -79,21 +79,27 @@ export default function Vegetarian() {
   const Wrapper= styled.div`
      
       margin: 4rem 0rem
-     `
+  `
 
   const Card = styled.div`
-       height:23vw;
-       width:20vw;
+
+       height:18vw;
+       width:18vw;
        background-color:yellow;
-       aspect-ratio:9:1;
+      
        border-radius:2rem;
        overflow:hidden;
        position: relative;
        margin right:3rem;
 
+
+       height:20vw;
+       width:36vw;
+       background-color:white;
+
        @media (max-width: 1024px) {
-        height:15rem;
-        width:13rem;
+        height:10rem;
+        width:12rem;
       }
        @media (max-width: 900px) {
         height:10rem;
@@ -122,9 +128,11 @@ export default function Vegetarian() {
         width:100%;
         height:100%;
         object-fit:cover;
+        border-radius:2rem;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
         position:absolute;
         left:0;
-        border-radius: 2rem;
+        
 
         @media (max-width: 630px) {
           font-size:1em;

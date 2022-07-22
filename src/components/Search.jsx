@@ -27,7 +27,7 @@ export default function Search() {
                value={search} 
                name="value" 
                id="value"/>
-             
+     
      </FormStyle>
    
   )
@@ -60,4 +60,6 @@ const FormStyle = styled.form`
          transform: translate(100%, -50%);
          color: black;
      }
+
+    
    `

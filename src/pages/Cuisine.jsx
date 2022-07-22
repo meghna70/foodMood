@@ -73,7 +73,7 @@ const Card = styled(Link)`
   text-decoration:none;
 
   img{
-  margin-top: 2rem;
+  margin-top: 1rem;
   width:90%;
   border-radius: 2rem;
  }
@@ -89,6 +89,7 @@ const Card = styled(Link)`
    }
    :hover{
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+
     transform: scale(1.03);
   }
 

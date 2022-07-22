@@ -49,8 +49,14 @@ const Card = styled(Link)`
   border-radius: 2rem;
   text-decoration: none;
 
+  :hover{
+
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    tranform:scale(1.03);
+    }
+    
   img{
-  margin-top: 2rem;
+  margin-top:1rem;
   width:90%;
   border-radius: 2rem;
  }
@@ -64,13 +70,11 @@ const Card = styled(Link)`
     padding:1rem;
     text-decoration: none;
    }
+    
    h6{
     font-size: 10px;
    }
-  &.hover{
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-    tranform: scale(1.03);
-  }
+    
 `;
 
 const Grid = styled.div`

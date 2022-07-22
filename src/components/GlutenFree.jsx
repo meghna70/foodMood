@@ -24,7 +24,8 @@ export default function GlutenFree() {
       }
       else{
         
-     const api= await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=9&diet=vegetarian`);
+     const api= await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=9&diet=glutenfree`);
+                              
      const data= await api.json();
 
      localStorage.setItem("gluten", JSON.stringify(data.recipes))

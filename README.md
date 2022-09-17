@@ -1,70 +1,22 @@
-# Getting Started with Create React App
+# WELCOME TO FOODMOOD
+your one stop solution to recipes
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Search from a wide collection of trending food, vegetarian and other options 
 
-## Available Scripts
+<img width="810" alt="image" src="https://user-images.githubusercontent.com/86762820/190848763-74ad2236-6880-4c62-a584-433491132031.png">
+<img width="822" alt="image" src="https://user-images.githubusercontent.com/86762820/190848753-d2224a06-78b1-4ffb-9605-543acf8b96b0.png">
+<img width="770" alt="image" src="https://user-images.githubusercontent.com/86762820/190848778-177a8865-008b-4a28-80f9-fc01caa7faa5.png">
 
-In the project directory, you can run:
+## You can search your favourite meal to make~
+<img width="943" alt="image" src="https://user-images.githubusercontent.com/86762820/190848796-ac21f3de-effc-45ba-bf40-0b3a57e1e371.png">
 
-### `npm start`
+## or perhaps choose your favourite cuisine !
+<img width="935" alt="image" src="https://user-images.githubusercontent.com/86762820/190848835-5ad08b7d-dfb0-4368-8860-8967be26ff66.png">
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## you can follow these easy instructions to prepare your food 
+<img width="892" alt="image" src="https://user-images.githubusercontent.com/86762820/190848863-9a6415bd-cba4-4474-bb52-5989dd3c3c53.png">
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Also responsible for mobile users
+<img width="358" alt="image" src="https://user-images.githubusercontent.com/86762820/190848871-55198b64-1ccb-4e0d-a1f0-385adea9a3ff.png">
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Hope you had fun exploring as much as I had while making it <3

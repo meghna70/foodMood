@@ -6,6 +6,7 @@ import './index.css';
 import { BrowserRouter } from 'react-router-dom';
 import Header from './components/Header';
 import NavBar from './components/NavBar';
+import Form from './pages/Form';
 
 function App() {
   return (
@@ -15,9 +16,8 @@ function App() {
         <BrowserRouter>
         <NavBar/>
         <AppW>
-        <Category/>
-        <Pages/>
         
+        <Pages/>
       </AppW>
       </BrowserRouter>
     </div>
@@ -28,7 +28,7 @@ function App() {
 export default App;
 
 const AppW= styled.div`
-      margin: 0% 10%;
+      margin: 0% 40px;
 
       
       @media (max-width: 600px) {

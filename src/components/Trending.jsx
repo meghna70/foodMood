@@ -5,6 +5,7 @@ import { Splide, SplideSlide } from "@splidejs/react-splide";
 import '@splidejs/react-splide/css';
 import { useMediaQuery } from 'usehooks-ts';
 import { Link } from "react-router-dom";
+import RecipeCard from "./RecipeCard";
 
 export default function Trending() {
 
@@ -19,7 +20,7 @@ export default function Trending() {
 
      const check = localStorage.getItem("trending")
 
-      if(check){
+      if(check && check !== "undefined"){
         setTrending(JSON.parse(check));
       }
       else{
@@ -41,23 +42,26 @@ export default function Trending() {
               <h1>Trending</h1>
               <Splide
                   options={{
-                  perPage: matches ? 2 : 3,
+                  perPage: matches ? 4 : 2,
                   arrows:true,
                   pagiination:false,
                   drag:true,
-                  gap:'0.5rem'}}
+                  // gap:'0.5rem'
+                
+                }}
               >
               {trending.map((recipe) =>{
                       
                       return(
                         <SplideSlide key={recipe.id}>
-                           <Card>
+                           {/* <Card>
                             <Link to={'/recipe/'+ recipe.id}>
                               <p>{recipe.title}</p>
                               <img src={recipe.image} alt={recipe.title}/>
                              <Gradient/>
                               </Link>
-                            </Card>
+                            </Card> */}
+                            <RecipeCard id = {recipe.id} title={recipe.title} rimg={recipe.image}/>
                         </SplideSlide>
                       );
               })}

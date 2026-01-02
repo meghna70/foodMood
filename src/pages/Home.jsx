@@ -4,11 +4,15 @@ import Header from "../components/Header";
 import styled from "styled-components";
 import GlutenFree from "../components/GlutenFree";
 import React from 'react'
+import RecipeCard from "../components/RecipeCard";
+import Category from "../components/Category";
 
 function Home() {
   return (
     <AppW>
         <Header/>
+        <Category/>
+       
         <Trending/>
         <Vegetarian/>
         <GlutenFree/>

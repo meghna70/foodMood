@@ -19,7 +19,7 @@ export default function Vegetarian() {
 
      const check = localStorage.getItem("Veggie")
 
-      if(check){
+      if(check && check !== "undefined"){
         setVeggie(JSON.parse(check));
       }
       else{

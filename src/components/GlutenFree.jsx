@@ -19,7 +19,7 @@ export default function GlutenFree() {
 
      const check = localStorage.getItem("gluten")
 
-      if(check){
+      if(check && check !== "undefined"){
         setGluten(JSON.parse(check));
       }
       else{

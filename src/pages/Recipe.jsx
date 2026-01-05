@@ -57,7 +57,7 @@ export default function Recipe() {
        <RecipeDetails>
          <h1>{detail.title}</h1>
          <FlexRow>
-         <h3><FaStar/> Likes: {detail.aggregateLikes * 123}</h3>
+         <h3><FaStar/> Likes: {detail.aggregateLikes}</h3>
          <h3><BiDish/> Time : {detail.cookingMinutes+ detail.preparationMinutes + detail.readyInMinutes}  min</h3>
          <h3><FaUtensils/> Serving : {detail.servings}</h3>
          </FlexRow>

@@ -6,73 +6,83 @@ import '@splidejs/react-splide/css';
 import { useMediaQuery } from 'usehooks-ts';
 import { Link } from "react-router-dom";
 import RecipeCard from "./RecipeCard";
+import bg7 from "../bg-7.png";
 
 export default function Trending() {
 
   const matches = useMediaQuery('(min-width: 768px)')
-  const [trending, setTrending]= useState([]);
+  const [trending, setTrending] = useState([]);
 
-   useEffect( () => {
+
+  useEffect(() => {
     getTrending();
-   } , [])
+  }, [])
 
-  const getTrending= async()=>{
+  const getTrending = async () => {
 
-     const check = localStorage.getItem("trending")
+    const check = localStorage.getItem("trending")
 
-      if(check && check !== "undefined"){
-        setTrending(JSON.parse(check));
-      }
-      else{
-        
-     const api= await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=9`);
-     const data= await api.json();
+    if (check && check !== "undefined") {
+      console.log("blahhh", JSON.parse(check));
+      setTrending(JSON.parse(check));
+    }
+    else {
 
-     localStorage.setItem("trending", JSON.stringify(data.recipes))
-     console.log(data);
-     console.log("here");
-     setTrending(data.recipes)
-      }
+      const api = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=9`);
+      const data = await api.json();
+
+      localStorage.setItem("trending", JSON.stringify(data.recipes))
+      console.log(data);
+      console.log("here");
+      setTrending(data.recipes)
+    }
   }
   return (
     <div>
-      
-            <Wrapper>
-             <GlobalStyle/>
-              <h1>Trending</h1>
-              <Splide
-                  options={{
-                  perPage: matches ? 4 : 2,
-                  arrows:true,
-                  pagiination:false,
-                  drag:true,
-                  // gap:'0.5rem'
-                
-                }}
-              >
-              {trending.map((recipe) =>{
-                      
-                      return(
-                        <SplideSlide key={recipe.id}>
-                           {/* <Card>
-                            <Link to={'/recipe/'+ recipe.id}>
-                              <p>{recipe.title}</p>
-                              <img src={recipe.image} alt={recipe.title}/>
-                             <Gradient/>
-                              </Link>
-                            </Card> */}
-                            <RecipeCard id = {recipe.id} title={recipe.title} rimg={recipe.image}/>
-                        </SplideSlide>
-                      );
-              })}
-              </Splide>
-            </Wrapper>
-         
+
+      <Wrapper>
+        <GlobalStyle />
+        <div style={{ position:"relative", width : "100%"}}>
+           <Img1 src={bg7} ></Img1>
+        </div>
+        <h1>Trending</h1>
+        <Splide
+          options={{
+            perPage: matches ? 4 : 2,
+            arrows: true,
+            pagiination: false,
+            drag: true,
+            // gap:'0.5rem'
+
+          }}
+        >
+          {trending.map((recipe) => {
+
+            return (
+              <SplideSlide key={recipe.id}>
+                <RecipeCard
+                  id={recipe.id}
+                  title={recipe.title}
+                  rimg={recipe.image}
+                  vegetarian={recipe.vegetarian}
+                  vegan={recipe.vegan}
+                  veryHealthy={recipe.veryHealthy}
+                  readyInMinutes={recipe.readyInMinutes}
+                  servings={recipe.servings}
+                  aggregateLikes={recipe.aggregateLikes}
+                  cuisine={recipe.cuisines[0]}
+                />
+              </SplideSlide>
+            );
+          })}
+        </Splide>
+      </Wrapper>
+
     </div>
   )
-      }
+}
 
-      const GlobalStyle = createGlobalStyle`
+const GlobalStyle = createGlobalStyle`
       body{
         font-family: 'Fredoka', sans-serif;
       }
@@ -80,12 +90,16 @@ export default function Trending() {
         font-family: 'Fredoka', sans-serif;
       }
   `
-  const Wrapper= styled.div`
+const Wrapper = styled.div`
      
       margin: 4rem 0rem
+
+      .splide__pagination{
+        margin-top:12px;
+      }
   `
 
-  const Card = styled.div`
+const Card = styled.div`
 
        height:18vw;
        width:18vw;
@@ -170,4 +184,29 @@ const Gradient = styled.div`
         height:100%;
         width:100%;
         background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.5));
+`
+
+const Img1 = styled.img`
+    position:absolute;
+    left:-18%;
+    bottom:-40vh;
+    z-index:-2;
+    opacity:0.6;
+    transform:rotate(50deg);
+    filter: drop-shadow(0 30px 20px rgba(206, 196, 196, 0.5));
+    @media(max-width:800px){
+        width:250px;
+        left:-20%;
+         bottom:28%;
+    }
+     @media(max-width:600px){
+        width:250px;
+        left:-20%;
+        bottom:28%;
+    }
+    @media(max-width:500px){
+        width:250px;
+        bottom:28%;
+        filter: blur(0.4px);
+    }
 `

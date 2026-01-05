@@ -25,7 +25,8 @@ body {
     /* background-image: linear-gradient(#FFF,
             #FACB80); */
     /* background-color: #f9f9f9; */
-    font-family: Fredoka;
+    background-color: #FAF7F5;
+    /* font-family: Fredoka; */
 }
 
 .line {

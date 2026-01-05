@@ -1,34 +1,60 @@
 import React from 'react'
 import { Link } from "react-router-dom";
-import { FaPaperPlane } from 'react-icons/fa';
-
+import { FaPaperPlane, FaRegUser } from 'react-icons/fa';
+import { FaClock } from "react-icons/fa";
+// import { FaPerson } from "react-icons/fa";
+import { FaHeart } from "react-icons/fa";
 
 import recp from "../recp.jpg"
 import styled from 'styled-components';
 function RecipeCard(props) {
-    return (
-        <Card>
+  return (
+    <Card style={{
+      borderRadius:
+        props?.borderradius == 2
+          ? "0px 0px 2rem 2rem"
+          : "2rem",
+    }}>
 
-            <p>{props.title}</p>
-            <img src={props.rimg} alt={"Chili con Carne with Nachos Chips"} />
-            <LinkBtn>
-                <div>See Complete Recipe</div>
-                <Link to={'/recipe/' + props.id}>
-                    <PlaneBtn>
-                        <FaPaperPlane />
-                    </PlaneBtn>
-                </Link>
+      <p>{props.title}</p>
+      <ImgContainer >
+        <img src={props.rimg} alt={"Chili con Carne with Nachos Chips"} />
+        {
+          props.veryHealthy && <span> 🌱 Healthy</span>
+        }
+      </ImgContainer>
+      <DetailTag >
+        <span><FaClock /> <span style={{ color: "black", fontWeight: 600 }}>{props.readyInMinutes} mins</span></span>
+        <span><FaRegUser /> <span style={{ color: "black", fontWeight: 600 }}> Serves {props.servings} </span></span>
+        <span><FaHeart /> <span style={{ color: "black", fontWeight: 600 }}>{props.aggregateLikes}</span></span>
+      </DetailTag>
+      <TagContainer>
+
+        <div>
+          {props.vegan ? <span> 🌱 Vegan</span> : props?.vegetarian ? <span> 🥬 Veg</span> : <span> 🥩 Non-veg</span>}
+        </div>
+
+        {props.cuisine && <div style={{}}> <span>{props.cuisine}</span></div>}
+
+      </TagContainer>
+      <LinkBtn>
+        <div>See Complete Recipe</div>
+
+        <Link to={'/recipe/' + props.id}>
+          <PlaneBtn>
+            <FaPaperPlane />
+          </PlaneBtn>
+        </Link>
 
 
-            </LinkBtn>
+      </LinkBtn>
 
-        </Card>
-    )
+    </Card>
+  )
 }
 
 const Card = styled.div`
 
-       border-radius:2rem;
        border-width:1px;
        overflow:hidden;
        position: relative;
@@ -82,18 +108,56 @@ const Card = styled.div`
         height : 90px;
 
         @media (max-width: 1024px) {
-            
             font-size:1em;
             height : 40px;
         }
        }
   `
+const ImgContainer = styled.div`
+      position:relative;
+      object-fit:cover;
+      span{
+        left:0;
+         background-color:rgba(189, 189, 189, 0.4);
+        padding:5px;
+        border-radius:12px;
+        position:absolute;
+      }
+`
+const DetailTag = styled.div`
+      width:100%;
+      padding : 12px 5px 5px 5px;
+      display: flex;
+      gap:12px;
+      color: green;
 
+`
+const TagContainer = styled.div`
+      display : flex;
+      // flex-direction: column;
+      width:100%;
+      padding :0px 5px;
+
+      // background-color: #ffe5e5ff;
+      div{
+      font-family: Poppins;
+       padding : 5px 10px;
+       border-radius: 20px;
+       background-color: #f2f1f1ff;
+      }
+      .detailTag{
+       
+      }
+      @media (max-width: 768px) {
+        font-size: 0.8em;
+      }
+
+`
 const LinkBtn = styled.div`
     display: flex;
     justify-content : space-between;
     align-items : center;
-    margin: 20px 0px;
+    margin: 15px 0px;
     padding:10px 15px;
     border-radius : 25px;
     background-color: black;

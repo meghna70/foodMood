@@ -24,11 +24,7 @@ export default function
     const tl = gsap.timeline();
     useGSAP(() => {
         tl.to(font_container.current, {
-            x: "-25vw", duration: 2, ease: "power3.out"
-            //  text: {
-            //     value: "Exploring New Recipes",
-
-            // },
+            x: "-25vw", duration: 2, ease: "power3.out",
         });
         // tl.to(".line", {
         //     opacity: 1,
@@ -42,7 +38,7 @@ export default function
                 `.${line.className}`,
                 {
                     opacity: 1,
-                    y:12,
+                    y: 12,
                     duration: 0.6,
                     text: line.text,
                     stagger: 0.15,
@@ -52,7 +48,7 @@ export default function
             );
         });
 
-        gsap.to(img_conatiner.current, { x: "25vw", y:12, stagger: 0.15, duration: 2, ease: "power3.out" })
+        gsap.to(img_conatiner.current, { x: "25vw", y: 12, stagger: 0.15, duration: 2, ease: "power3.out" })
 
     }, { scope: font_container })
 
@@ -66,10 +62,17 @@ export default function
                     {lines.map((l, i) => (
                         <p key={i} className={`line ${l.className}`} />
                     ))}
+
                 </Main_content>
                 <div >
                     <img ref={img_conatiner} src={ramen} />
                 </div>
+                {/* <div className="btn-absolute">
+                    <div className='btn-stack'>
+                        <div to={'/'}><YellowBtn className='yellow'>Contact Us</YellowBtn> </div>
+                        <div to={'/'}><BlackBtn >Explore more</BlackBtn> </div>
+                    </div>
+                </div> */}
             </FlexCol>
             {/* <Secondary_content>
                     <h6>want to learn cooking but confused how to start?</h6>
@@ -85,8 +88,23 @@ const Card = styled.div`
   margin: 22px auto;
   margin-top:100px;
   display: flex;
+  
   align-items: center;
   justify-content: center;
+
+  .btn-stack{
+    margin: 22px auto;
+    padding: 12px;
+    display: flex;
+    flex-direction:row;
+    align-items: center;
+    justify-content: center;
+    gap:22px;
+  }
+  @media(max-width:1024px){
+    margin-top:22px;
+    
+    }
 `
 const Img = styled.img`
   width: 100%;
@@ -96,33 +114,20 @@ const Img = styled.img`
 `;
 
 const FlexCol = styled.div`
-   
-    // background-color:yellow;
     width:100vw;
-    // flex-direction:row;
     position:relative;
-    // h1{ position:absolute;
-    //     left:0%;
-    //     top:30%;
-    //     font-size:70px;
-    //     padding:0;
-    //     margin:0;
-    //     display:inline;   
-    // }
-
     img{
         width:40%;
         transform:scale(1);
-        // align-self: flex-end;
-         position:relative;
-         left:35%;
+        filter: drop-shadow(0 30px 60px rgba(74, 70, 70, 0.5));
+        position:relative;
+        left:35%;
     }
-    
-    @media(max-width:700px){
-        h1{
-            
-        }
-
+    .btn-absolute{
+        position: absolute;
+        left:30%;
+        bottom:0%;
+    }
 `
 
 const Main_content = styled.div`
@@ -135,14 +140,25 @@ const Main_content = styled.div`
         display:inline;  
         font-weight: 600; 
         h1{
-        margin-bottom:12px;}
+        font-family:"Montserrat";
+        font-family:"Raleway", sans-serif;
+        margin-bottom:12px;
+        font-weight:600;
+        // color:#6B6B6B; // 3E424B;
+         letter-spacing: -0.05em;
+         color:rgba(74, 70, 70, 1);
+        }
         .line {
+            // font-family:"Montserrat";
             opacity: 0;
             margin: 0;
+            font-weight:200;
+             letter-spacing: -0.02em;
         }
 
         .line-1 {
             font-size: 4rem;
+            color:#6B6B6B;
             span{
                 color:#ffbd59;
             }
@@ -157,6 +173,44 @@ const Main_content = styled.div`
             font-size: 1.4rem;
             letter-spacing: 0.1em;
             color:#706236;
+            margin-left:12px;
+        }
+        
+        
+        @media(max-width:1024px){
+            h1{
+                font-size: 10vw;
+            }
+            .line-1{
+                font-size: 5vw;
+            }
+            .line-3{
+                font-size: 3vw;
+            }
+        }
+        @media(max-width:426px){
+            h1{
+                font-size: 7vw;
+                margin-bottom:0px;
+            }
+            .line-1{
+                font-size: 4vw;
+            }
+            .line-3{
+                font-size: 3vw;
+            }
+        }
+        @media(max-width:321px){
+            h1{
+                font-size: 9vw;
+                margin-bottom:0px;
+            }
+            .line-1{
+                font-size: 5vw;
+            }
+            .line-3{
+                font-size: 3vw;
+            }
         }
        
 `;
@@ -177,4 +231,21 @@ const Secondary_content = styled.div`
             font-size: 3vw;
         }
     }
+
+    `
+
+const YellowBtn = styled.div`
+      // color: #6B6B6B;
+      background-color:#FDD365; //F4B740
+      padding:12px;
+      font-size:1.3rem;
+      border-radius:7px;
+`
+
+const BlackBtn = styled.div`
+      color: #fff;
+      background-color:#000; //F4B740
+      padding:12px;
+      font-size:1.3rem;
+      border-radius:7px;
 `

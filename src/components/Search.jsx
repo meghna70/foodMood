@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { useState } from 'react';
 import {FaSearch} from 'react-icons/fa';
-import {useNavigate} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 
 export default function Search() {
 
@@ -23,10 +23,12 @@ export default function Search() {
         <FaSearch/>
         <input type="text"
                placeholder='search by ingredient, cuisine or more..'
+               place
                onChange={handleChange} 
                value={search} 
                name="value" 
                id="value"/>
+         <BlackBtn>Find Recipes</BlackBtn> 
      
      </FormStyle>
    
@@ -34,24 +36,28 @@ export default function Search() {
 }
 
 const FormStyle = styled.form`
-     margin-top: 30px;
+     margin: 30px 0px 10px 0px;
      border-radius : 1rem;
      position: relative;
-     left:2%;
-     bottom: 10%;
-     width: 40%;
-
+     width: 80%;
+    
+     background-color: #f2f2f2ff;
+    //  filter: drop-shadow(0px 10px 20px rgba(196, 185, 185, 0.4));
      input
      {
-        width: 93%;
+        width: clamp(70%, 40%, 20%);
+        position:absolute;
+         left:6%;
         font-size:1rem;
         border: none;
         border-radius : 1rem;
         outline:none;
         border: none;
         box-shadow:none;
-        color: rgba(255, 71, 99,1);
-        font-family: Fredoka ;
+        color: rgba(89, 88, 86, 1);
+        font-family: Raleway ;
+        // background-color: #fafafa;
+        background-color: #f2f2f2ff;
      }
      svg{
          position:absolute;
@@ -63,3 +69,15 @@ const FormStyle = styled.form`
 
     
    `
+
+
+const BlackBtn = styled.div`
+      // color: #6B6B6B;
+      align-self :end;
+      background-color:#f4b740; //F4B740
+      padding:9px;
+      padding: 8px 16px;
+      font-size:0.9rem;
+      border-radius:12px;
+`
+

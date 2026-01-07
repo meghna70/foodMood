@@ -1,7 +1,7 @@
 # WELCOME TO FOODMOOD
 your one stop solution to recipes
 
-<img width="810" alt="image" src="https://user-images.githubusercontent.com/86762820/190848993-971c8cf3-44a1-4137-99b1-9e1abcf9e049.png">
+<img width="1135" height="680" alt="image" src="https://github.com/user-attachments/assets/0b16e4cd-db7e-4d88-baf5-53737e087398" />
 
 ## Search from a wide collection of trending food, vegetarian and other options 
 

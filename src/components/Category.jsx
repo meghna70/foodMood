@@ -134,19 +134,19 @@ export default function Category() {
                         Italian
                     </CategoryLink>
 
-                    <CategoryLink to={'/cuisine/dessert'}>
+                    <CategoryLink to={'/type/dessert'}>
                         {/* <h5><GiChopsticks /></h5> */}
                         Dessert
                     </CategoryLink>
 
-                    <CategoryLink to={'/cuisine/quick'}>
+                    <CategoryLink to={'/type/snack'}>
                         {/* <h5><GiChopsticks /></h5> */}
-                        Quick
+                        Snack
                     </CategoryLink>
 
-                    <CategoryLink to={'/cuisine/healthy'}>
+                    <CategoryLink to={'/type/appetizer'}>
                         {/* <h5><GiChopsticks /></h5> */}
-                        Healthy
+                        Appetizer
                     </CategoryLink>
 
 

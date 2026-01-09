@@ -102,7 +102,7 @@ export default function Category() {
                 <Img3 ref={img3_ref} src={bg5} ></Img3>
             </div>
             <SearchContainer>
-                <p className='title' style={{ fontFamily: "Fredoka", margin: "1rem 0px 0px 0px" }}> What to <span style={{ color: "orange" }}>Cook</span>?</p>
+                <p className='title' style={{ fontFamily: "Raleway", margin: "1rem 0px 0px 0px" }}> What to <span style={{ color: "orange" }}>Cook</span>?</p>
                 <p className='subtitle' style={{ margin: "12px 0px 26px 0px", color: "gray" }}>Find recipes based on your mood, ingredients or cravings.</p>
               <SearchWrapper>
               <Search />
@@ -211,6 +211,7 @@ const SearchContainer = styled.div`
         align-items: center; 
         flex-direction: column; 
         // box-shadow: 0px 0px 20px rgba(225, 201, 223,0.3) }};
+        
          @media(max-width:800px){
             width: 90%; 
     }
@@ -221,7 +222,7 @@ const Img1 = styled.img`
     left:-18%;
     bottom:15px;
     z-index:-2;
-    filter: drop-shadow(0 30px 20px rgba(231, 133, 133, 0.5));
+    filter: drop-shadow(0 30px 20px rgba(231, 178, 178, 0.5));
     @media(max-width:800px){
         width:250px;
         left:-20%;
@@ -244,7 +245,7 @@ const Img2 = styled.img`
     right:0%;
     bottom:5px;
     z-index:-2;
-    filter: drop-shadow(0 30px 20px rgba(231, 133, 133, 0.5));
+    filter: drop-shadow(0 30px 20px rgba(231, 178, 178, 0.5));
     // filter: blur(1.3px);
     @media(max-width:600px){
         width:200px;
@@ -261,7 +262,7 @@ const Img3 = styled.img`
     left:-12%;
     bottom:-100%;
     z-index:-2;
-    filter: drop-shadow(0 30px 20px rgba(231, 133, 133, 0.5)) ;
+    filter: drop-shadow(0 30px 20px rgba(231, 178, 178, 0.5)) ;
     // blur(2px);
     @media(max-width:800px){
         width:250px;

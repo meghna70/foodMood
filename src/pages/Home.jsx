@@ -23,7 +23,7 @@ function Home() {
       <Category />
       <Popular />
       <Trending />
-      <MealPlanning/>
+      {/* <MealPlanning/> */}
       {/* <Vegetarian />
       <GlutenFree /> */}
     </AppW>

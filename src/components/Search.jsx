@@ -58,9 +58,17 @@ const FormStyle = styled.form`
         font-family: Raleway ;
         // background-color: #fafafa;
         background-color: #f2f2f2ff;
+          @media (max-width: 1300px) {
+            width: 55%;
+            left:8%;
+        }
          @media (max-width: 900px) {
             width: 50%;
             left:8%;
+        }
+        @media (max-width: 400px) {
+            width: 50%;
+            left:12%;
         }
      }
      svg{
@@ -83,5 +91,9 @@ const BlackBtn = styled.div`
       padding: 8px 16px;
       font-size:0.9rem;
       border-radius:12px;
+      @media (max-width: 400px) {
+             padding: 8px ;
+            font-size:0.55rem;
+        }
 `
 

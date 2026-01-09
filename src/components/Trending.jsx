@@ -7,11 +7,11 @@ import RecipeCard from "./RecipeCard";
 import bg7 from "../bg-7.png";
 
 /* ---------- Splide Layout Logic ---------- */
-const getSplideLayout = (matchesFirst, matches) => {
+const getSplideLayout = (matchesFirst, matches, matches_2) => {
   const gap = matchesFirst ? "0.5rem" : "0.6rem";
   const hasGap = gap !== "0rem";
 
-  const basePerPage = matchesFirst ? 4 : matches ? 3 : 2;
+  const basePerPage = matchesFirst ? 4 : matches ? 3 : matches_2?  2: 1;
   const perPage = basePerPage;
 
   return { perPage, gap };
@@ -19,10 +19,11 @@ const getSplideLayout = (matchesFirst, matches) => {
 
 export default function Trending() {
   const matches = useMediaQuery("(min-width: 786px)");
+  const matches_2 = useMediaQuery("(min-width: 500px)");
   const matchesFirst = useMediaQuery("(min-width: 1400px)");
   const [trending, setTrending] = useState([]);
 
-  const { perPage, gap } = getSplideLayout(matchesFirst, matches);
+  const { perPage, gap } = getSplideLayout(matchesFirst, matches, matches_2);
 
   useEffect(() => {
     fetchTrending();
@@ -121,7 +122,7 @@ const Img1 = styled.img`
   opacity: 0.6;
   transform: rotate(50deg);
   filter: drop-shadow(0 30px 20px rgba(206, 196, 196, 0.5));
-
+   filter: blur(4px);
   @media (max-width: 800px) {
     width: 250px;
     left: -20%;

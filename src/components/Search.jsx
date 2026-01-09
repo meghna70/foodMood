@@ -20,7 +20,7 @@ export default function Search() {
 
     return (
         <FormStyle onSubmit={handleSubmit}>
-            <FaSearch />
+
             <input type="text"
                 placeholder='search by ingredient, cuisine or more..'
                 place
@@ -28,7 +28,7 @@ export default function Search() {
                 value={search}
                 name="value"
                 id="value" />
-            <BlackBtn onClick={handleSubmit}>Find Recipes</BlackBtn>
+            <BlackBtn onClick={handleSubmit}><FaSearch /></BlackBtn>
 
         </FormStyle>
 
@@ -38,16 +38,19 @@ export default function Search() {
 const FormStyle = styled.form`
      margin: 30px 0px 10px 0px;
      border-radius : 1rem;
-     position: relative;
+     padding:12px;
      width: 80%;
-    
-     background-color: #f2f2f2ff;
+    display: flex;
+    justify-content:center;
+    align-items:"center";
+    flex-warp:"wrap";
+     background-color: #ffffffff;
+     border : 1px solid #d3d3d3;
     //  filter: drop-shadow(0px 10px 20px rgba(196, 185, 185, 0.4));
      input
      {
-        width: clamp(70%, 40%, 20%);
-        position:absolute;
-        left:6%;
+       
+         width: 90%;
         font-size:1rem;
         border: none;
         border-radius : 1rem;
@@ -57,28 +60,20 @@ const FormStyle = styled.form`
         color: rgba(89, 88, 86, 1);
         font-family: Raleway ;
         // background-color: #fafafa;
-        background-color: #f2f2f2ff;
-          @media (max-width: 1300px) {
-            width: 55%;
-            left:8%;
-        }
-         @media (max-width: 900px) {
-            width: 50%;
-            left:8%;
-        }
-        @media (max-width: 400px) {
-            width: 50%;
-            left:12%;
-        }
+        // background-color: #f2f2f2ff;
+        //   @media (max-width: 1300px) {
+        //     width: 55%;
+        //     left:8%;
+        // }
+        //  @media (max-width: 900px) {
+        //     width: 50%;
+        //     left:8%;
+        // }
+        // @media (max-width: 400px) {
+        //     width: 60%;
+        //     left:12%;
+        // }
      }
-     svg{
-         position:absolute;
-         top:50%;
-         left:0%;
-         transform: translate(100%, -50%);
-         color: black;
-     }
-
     
    `
 
@@ -89,8 +84,13 @@ const BlackBtn = styled.div`
       background-color:#f4b740; //F4B740
       padding:9px;
       padding: 8px 16px;
+      position: relative
+    //   display: flex;
+    //   justify-content:center;
+    //   align-item:center;
       font-size:0.9rem;
       border-radius:12px;
+    
       @media (max-width: 400px) {
              padding: 8px ;
             font-size:0.55rem;

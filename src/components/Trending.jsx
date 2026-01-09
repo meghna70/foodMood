@@ -54,7 +54,7 @@ export default function Trending() {
       <GlobalStyle />
 
       <BgWrap>
-        <Img1 src={bg7} />
+        <Img1 alt={"img1"} src={bg7} />
       </BgWrap>
 
       <h1>Trending</h1>

@@ -91,9 +91,9 @@ export default function Category() {
     return (
         <DivContainer ref={container_ref} style={{ position: "relative", padding: "20px", width: "100%", display: "flex", justifyContent: "center", }}>
             <div >
-                <Img1 ref={img1_ref} src={bg1} ></Img1>
-                <Img2 ref={img2_ref} src={bg2} ></Img2>
-                <Img3 ref={img3_ref} src={bg5} ></Img3>
+                <Img1 alt="img1" ref={img1_ref} src={bg1} ></Img1>
+                <Img2 alt="img2" ref={img2_ref} src={bg2} ></Img2>
+                <Img3 alt="img3" ref={img3_ref} src={bg5} ></Img3>
             </div>
             <SearchContainer>
                 <p className='title' style={{ fontFamily: "Raleway", margin: "1rem 0px 0px 0px" }}> What to <span style={{ color: "orange" }}>Cook</span>?</p>

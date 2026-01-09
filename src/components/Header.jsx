@@ -1,22 +1,18 @@
 import React from 'react'
 import styled from 'styled-components';
-import chef from '../chef.webp';
 import ramen from '../ramen.png'
-import banner from '../banner.png'
 import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { TextPlugin } from "gsap/TextPlugin";
 
-export default function
-    () {
+export default function Header() {
     gsap.registerPlugin(TextPlugin);
     const font_container = useRef(null);
     const img_conatiner = useRef(null);
 
     const lines = [
         { text: `Explore <span> Culinary </span> Insights`, className: "line-1" },
-        // { text: "", className: "line-2" },
         { text: "Beyond the recipe", className: "line-3" }
     ];
 
@@ -57,15 +53,15 @@ export default function
         <Card>
             {/* <Img src={banner} alt={"banner"} /> */}
             <FlexCol>
-                <Main_content ref={font_container}>
+                <MainContent ref={font_container}>
                     <h1>FoodMood</h1>
                     {lines.map((l, i) => (
                         <p key={i} className={`line ${l.className}`} />
                     ))}
 
-                </Main_content>
+                </MainContent>
                 <div >
-                    <img ref={img_conatiner} src={ramen} />
+                    <img alt='ramen' ref={img_conatiner} src={ramen} />
                 </div>
                 {/* <div className="btn-absolute">
                     <div className='btn-stack'>
@@ -106,12 +102,7 @@ const Card = styled.div`
     
     }
 `
-const Img = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  border-radius:22px;
-`;
+
 
 const FlexCol = styled.div`
     width:100vw;
@@ -130,7 +121,7 @@ const FlexCol = styled.div`
     }
 `
 
-const Main_content = styled.div`
+const MainContent = styled.div`
         position:absolute;
         left:30%;
         top:0%;
@@ -215,37 +206,37 @@ const Main_content = styled.div`
        
 `;
 
-const Secondary_content = styled.div`
-        margin:0px 30px;
-        margin-bottom:50px;
+// const Secondary_content = styled.div`
+//         margin:0px 30px;
+//         margin-bottom:50px;
 
-        h6{
-            font-size: 1.7vw;
-            padding:0;
-            margin:0;
+//         h6{
+//             font-size: 1.7vw;
+//             padding:0;
+//             margin:0;
         
-               }
+//                }
         
-     @media(max-width:700px){
-        h6{
-            font-size: 3vw;
-        }
-    }
+//      @media(max-width:700px){
+//         h6{
+//             font-size: 3vw;
+//         }
+//     }
 
-    `
+//     `
 
-const YellowBtn = styled.div`
-      // color: #6B6B6B;
-      background-color:#FDD365; //F4B740
-      padding:12px;
-      font-size:1.3rem;
-      border-radius:7px;
-`
+// const YellowBtn = styled.div`
+//       // color: #6B6B6B;
+//       background-color:#FDD365; //F4B740
+//       padding:12px;
+//       font-size:1.3rem;
+//       border-radius:7px;
+// `
 
-const BlackBtn = styled.div`
-      color: #fff;
-      background-color:#000; //F4B740
-      padding:12px;
-      font-size:1.3rem;
-      border-radius:7px;
-`
+// const BlackBtn = styled.div`
+//       color: #fff;
+//       background-color:#000; //F4B740
+//       padding:12px;
+//       font-size:1.3rem;
+//       border-radius:7px;
+// `

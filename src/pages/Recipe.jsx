@@ -1,12 +1,10 @@
-import { editableInputTypes } from '@testing-library/user-event/dist/utils';
-import React from 'react';
+
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom'; 
 import styled from 'styled-components';
 import { createGlobalStyle } from "styled-components";
 import {FaStar, FaUtensils} from 'react-icons/fa';
 import {BiDish} from 'react-icons/bi';
-import { Splide, SplideSlide } from "@splidejs/react-splide";
 import { useMediaQuery } from 'usehooks-ts';
 import '@splidejs/react-splide/css';
 
@@ -49,7 +47,7 @@ export default function Recipe() {
       <FlexCol>
       <GlobalStyle/>
         <ImageDetails>
-          <img src={detail.image}/>
+          <img alt='name' src={detail.image}/>
           {matches? <div></div>:
           <h1>{detail.title}</h1>}
           <Gradient/>
@@ -209,15 +207,15 @@ color:black;
       }
 `
 
-const Card = styled.div`
+// const Card = styled.div`
      
       
-       height:5rem;
-       width:5rem;
-       background-color:yellow;
+//        height:5rem;
+//        width:5rem;
+//        background-color:yellow;
       
-       `
-const Stylesplide = styled(SplideSlide)`
-      width: 70%;
-`
+//        `
+// const Stylesplide = styled(SplideSlide)`
+//       width: 70%;
+// `
       

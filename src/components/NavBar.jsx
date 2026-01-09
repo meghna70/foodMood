@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import Search from '../components/Search'
+// import Search from '../components/Search'
 import { Link } from 'react-router-dom'
 import { useMediaQuery } from 'usehooks-ts'
 import logo from "../Logo.png"

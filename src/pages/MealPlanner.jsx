@@ -1,9 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import NavBar from '../components/NavBar'
+import  { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
-import RecipeCard from '../components/RecipeCard'
-import bg3 from "../bg-3.png"
 import MealCard from '../components/MealCard'
 function MealPlanner() {
     const diets = ["Anything", "Gluten Free", "Ketogenic", "Vegetarian", "Lacto-Vegetarian", "Ovo-Vegetarian", "Vegan", "Pescetarian", "Paleo"];

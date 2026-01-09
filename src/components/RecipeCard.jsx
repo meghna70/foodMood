@@ -5,13 +5,12 @@ import { FaClock } from "react-icons/fa";
 // import { FaPerson } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
 
-import recp from "../recp.jpg"
 import styled from 'styled-components';
 function RecipeCard(props) {
   return (
     <Card style={{
       borderRadius:
-        props?.borderradius == 2
+        props?.borderradius === 2
           ? "0px 0px 2rem 2rem"
           : "2rem",
     }}>

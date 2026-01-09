@@ -1,20 +1,14 @@
-import { FaPizzaSlice, FaHamburger } from 'react-icons/fa';
-import { GiNoodles, GiChopsticks } from 'react-icons/gi';
+import React from 'react'
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import bg1 from "../bg-1.png"
 import bg2 from "../bg-2.png"
-import bg3 from "../bg-3.png"
-import bg4 from "../bg-4.png"
 import bg5 from "../bg-5.png"
-import bg6 from "../bg-6.png"
-import React from 'react'
 import Search from './Search';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { TextPlugin } from "gsap/TextPlugin";
 
 
 export default function Category() {

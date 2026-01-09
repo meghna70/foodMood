@@ -9,7 +9,7 @@ import bg7 from "../bg-7.png";
 /* ---------- Splide Layout Logic ---------- */
 const getSplideLayout = (matchesFirst, matches, matches_2) => {
   const gap = matchesFirst ? "0.5rem" : "0.6rem";
-  const hasGap = gap !== "0rem";
+  // const hasGap = gap !== "0rem";
 
   const basePerPage = matchesFirst ? 4 : matches ? 3 : matches_2?  2: 1;
   const perPage = basePerPage;

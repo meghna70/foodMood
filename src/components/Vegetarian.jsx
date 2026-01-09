@@ -3,12 +3,11 @@ import styled from "styled-components";
 import { createGlobalStyle } from "styled-components";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import '@splidejs/react-splide/css';
-import { useMediaQuery } from 'usehooks-ts';
+// import { useMediaQuery } from 'usehooks-ts';
 import { Link } from "react-router-dom";
 
 export default function Vegetarian() {
 
-  const matches = useMediaQuery('(min-width: 768px)')
   const [Veggie, setVeggie]= useState([]);
 
    useEffect( () => {

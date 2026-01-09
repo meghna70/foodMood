@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import {motion} from 'framer-motion';
 import styled from 'styled-components';
-import { Link, NavLink, useParams  } from 'react-router-dom';
-import { createGlobalStyle } from "styled-components";
+import { Link, useParams  } from 'react-router-dom';
 
 export default function Cuisine() {
 
@@ -52,14 +50,7 @@ export default function Cuisine() {
   )
 }
 
-const GlobalStyle = createGlobalStyle`
-body{
-  font-family: 'Fredoka', sans-serif;
-}
-p{
-  font-family: 'Fredoka', sans-serif;
-}
-`
+
 
 const Card = styled(Link)`
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);

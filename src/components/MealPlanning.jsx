@@ -2,7 +2,6 @@ import React from 'react'
 // import banner from "  ../banner.png"
 import styled from 'styled-components';
 import img3 from "../3.png"
-import img4 from "../4.png"
 import { Link } from 'react-router-dom';
 function MealPlanning() {
     return (

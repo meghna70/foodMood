@@ -1,13 +1,9 @@
-import Vegetarian from "../components/Vegetarian"
+import React from 'react';
 import Trending from "../components/Trending"
 import Header from "../components/Header";
 import styled from "styled-components";
-import GlutenFree from "../components/GlutenFree";
-import React from 'react'
-import RecipeCard from "../components/RecipeCard";
 import Category from "../components/Category";
 import Popular from "../components/Popular";
-import MealPlanning from "../components/MealPlanning";
 import { ScrollTrigger } from "gsap/all";
 import gsap from "gsap";
 

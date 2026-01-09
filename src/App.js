@@ -1,12 +1,10 @@
 import Pages from './pages/Pages';
 import styled from "styled-components";
-import Category from './components/Category';
-import Search from './components/Search';
 import './index.css';
 import { BrowserRouter } from 'react-router-dom';
-import Header from './components/Header';
+
 import NavBar from './components/NavBar';
-import Form from './pages/Form';
+
 
 function App() {
   return (

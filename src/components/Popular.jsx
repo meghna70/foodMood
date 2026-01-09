@@ -1,11 +1,7 @@
-import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { createGlobalStyle } from "styled-components";
-import { Splide, SplideSlide } from "@splidejs/react-splide";
 import '@splidejs/react-splide/css';
-import { useMediaQuery } from 'usehooks-ts';
-import { Link } from "react-router-dom";
-import RecipeCard from "./RecipeCard";
+// import { useMediaQuery } from 'usehooks-ts';
 import thai from "../thai.webp"
 import chinese from "../chinese.jpg"
 import mexican from "../mexican.jpg"
@@ -15,8 +11,8 @@ import { FaStar } from "react-icons/fa";
 
 export default function Popular() {
     
-    const matches = useMediaQuery('(min-width: 768px)')
-    const [popular, setPopular] = useState([
+    // const matches = useMediaQuery('(min-width: 768px)')
+    const popular = [
         {
             name: "Thai",
             rating: "4",
@@ -40,7 +36,7 @@ export default function Popular() {
             rating: 5,
             c_img: mexican,
             kcal: "220"
-        }]);
+        }];
 
 
     return (
@@ -106,13 +102,13 @@ const CardContainer = styled.div`
         flex-wrap:wrap;
 `
 
-const Gradient = styled.div`
-        z-index:3;
-        position:absolute;
-        height:100%;
-        width:100%;
-        background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.5));
-`
+// const Gradient = styled.div`
+//         z-index:3;
+//         position:absolute;
+//         height:100%;
+//         width:100%;
+//         background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.5));
+// `
 const Card = styled.div`
 
         border-radius:13px;

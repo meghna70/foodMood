@@ -36,13 +36,13 @@ function RecipeCard(props) {
         {props.cuisine && <div style={{}}> <span>{props.cuisine}</span></div>}
 
       </TagContainer>
-      <LinkBtn>
+      <LinkBtn to={'/recipe/' + props.id}>
+
         <div>See Complete Recipe</div>
-        <Link to={'/recipe/' + props.id}>
-          <PlaneBtn>
-            <FaPaperPlane />
-          </PlaneBtn>
-        </Link>
+        <PlaneBtn>
+          <FaPaperPlane />
+        </PlaneBtn>
+
       </LinkBtn>
 
     </Card>
@@ -162,7 +162,7 @@ const TagContainer = styled.div`
       }
 
 `
-const LinkBtn = styled.div`
+const LinkBtn = styled(Link)`
     display: flex;
     justify-content : space-between;
     align-items : center;
@@ -173,10 +173,14 @@ const LinkBtn = styled.div`
     color:white;
     width: 90%;
     font-size: 0.8em;
-
+    text-decoration: none;
     background-repeat: no-repeat;
   background-position: -360px, 0px, -100px 0;
   
+  a{
+    text-decoration: none;
+    color: white;
+  }
   background-image: -webkit-linear-gradient(
     top left,
     rgba(255, 255, 255, 0.2) 0%,

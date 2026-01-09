@@ -39,14 +39,11 @@ function RecipeCard(props) {
       </TagContainer>
       <LinkBtn>
         <div>See Complete Recipe</div>
-
         <Link to={'/recipe/' + props.id}>
           <PlaneBtn>
             <FaPaperPlane />
           </PlaneBtn>
         </Link>
-
-
       </LinkBtn>
 
     </Card>
@@ -60,7 +57,7 @@ const Card = styled.div`
        position: relative;
        padding: 0px 20px;
        height:auto;
-       width:280px;
+      
        background-color:white;
        display : flex;
        flex-direction: column;
@@ -130,6 +127,18 @@ const DetailTag = styled.div`
       display: flex;
       gap:12px;
       color: green;
+      @media (max-width: 900px) {
+        font-size: 0.8em;
+      }
+      @media (max-width: 768px) {
+        font-size: 0.8em;
+      }
+
+      @media (max-width: 600px) {
+      
+      }
+
+
 
 `
 const TagContainer = styled.div`
@@ -137,7 +146,7 @@ const TagContainer = styled.div`
       // flex-direction: column;
       width:100%;
       padding :0px 5px;
-
+ font-size: 0.6em;
       // background-color: #ffe5e5ff;
       div{
       font-family: Poppins;
@@ -145,11 +154,12 @@ const TagContainer = styled.div`
        border-radius: 20px;
        background-color: #f2f1f1ff;
       }
-      .detailTag{
-       
+      
+      @media (max-width: 900px) {
+        font-size: 0.6em;
       }
-      @media (max-width: 768px) {
-        font-size: 0.8em;
+      @media (max-width: 600px) {
+        font-size: 0.6em;
       }
 
 `
@@ -163,6 +173,7 @@ const LinkBtn = styled.div`
     background-color: black;
     color:white;
     width: 90%;
+    font-size: 0.8em;
 
     background-repeat: no-repeat;
   background-position: -360px, 0px, -100px 0;

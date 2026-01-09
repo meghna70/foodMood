@@ -1,12 +1,12 @@
 import React from 'react'
-import banner from "../banner.png"
+// import banner from "  ../banner.png"
 import styled from 'styled-components';
 import img3 from "../3.png"
 import img4 from "../4.png"
 import { Link } from 'react-router-dom';
 function MealPlanning() {
     return (
-        <div style={{position:"relative", marginTop:"50px", width: "100%", display: "flex", justifyContent: "center" }}>
+        <div style={{position:"relative", margin:"20vh 0px", width: "100%", display: "flex", justifyContent: "center" }}>
           
                 <Img style={{ width: "90%" }} src={img3} alt={"banner"} />
                 <TextContainer >
@@ -47,6 +47,22 @@ const TextContainer = styled.div`
     transform: scale(1.05);
     transition: 0.2s ease;
   }
+  @media(max-width: 1024px){
+    font-size: 1rem;
+
+    a{
+      padding: 3px 5px ;
+      border-radius: 6px;
+    }
+    }
+  @media(max-width: 700px){
+    font-size: 0.8rem;
+
+    a{
+      padding: 3px  ;
+      border-radius: 6px;
+    }
+    }
 `;
 
 

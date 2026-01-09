@@ -1,38 +1,38 @@
 import styled from 'styled-components';
 import { useState } from 'react';
-import {FaSearch} from 'react-icons/fa';
-import {Link, useNavigate} from 'react-router-dom';
+import { FaSearch } from 'react-icons/fa';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function Search() {
 
-    const [search, setSearch]= useState("");
-   
-    const navigate=useNavigate();
+    const [search, setSearch] = useState("");
 
-    function handleChange(event){
+    const navigate = useNavigate();
+
+    function handleChange(event) {
         setSearch(event.target.value);
     };
 
-    function handleSubmit(event){
+    function handleSubmit(event) {
         event.preventDefault();
-        navigate('/search/'+ search);
+        navigate('/search/' + search);
     }
 
-  return (
-     <FormStyle onSubmit={handleSubmit}>
-        <FaSearch/>
-        <input type="text"
-               placeholder='search by ingredient, cuisine or more..'
-               place
-               onChange={handleChange} 
-               value={search} 
-               name="value" 
-               id="value"/>
-         <BlackBtn>Find Recipes</BlackBtn> 
-     
-     </FormStyle>
-   
-  )
+    return (
+        <FormStyle onSubmit={handleSubmit}>
+            <FaSearch />
+            <input type="text"
+                placeholder='search by ingredient, cuisine or more..'
+                place
+                onChange={handleChange}
+                value={search}
+                name="value"
+                id="value" />
+            <BlackBtn onClick={handleSubmit}>Find Recipes</BlackBtn>
+
+        </FormStyle>
+
+    )
 }
 
 const FormStyle = styled.form`
@@ -47,7 +47,7 @@ const FormStyle = styled.form`
      {
         width: clamp(70%, 40%, 20%);
         position:absolute;
-         left:6%;
+        left:6%;
         font-size:1rem;
         border: none;
         border-radius : 1rem;
@@ -58,6 +58,10 @@ const FormStyle = styled.form`
         font-family: Raleway ;
         // background-color: #fafafa;
         background-color: #f2f2f2ff;
+         @media (max-width: 900px) {
+            width: 50%;
+            left:8%;
+        }
      }
      svg{
          position:absolute;

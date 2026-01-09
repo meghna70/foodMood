@@ -43,9 +43,8 @@ export default function Category() {
                     trigger: container_ref.current,
                     start: "top 80%",
                     end: "top 30%",
-                    scrub: true, // 👈 keeps running in background
-                    snap: 1,     // 👈 settles cleanly
-                    // markers: true,
+                    scrub: true, 
+                    snap: 1,  
                 },
             }
         );
@@ -65,8 +64,8 @@ export default function Category() {
                     trigger: container_ref.current,
                     start: "top 80%",
                     end: "top 30%",
-                    scrub: true, // 👈 keeps running in background
-                    snap: 1,     // 👈 settles cleanly
+                    scrub: true, 
+                    snap: 1,     
                     // markers: true,
                 },
             }

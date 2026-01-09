@@ -16,32 +16,31 @@ export default function Recipe() {
 
     const [active, setActive]= useState("instructions");
 
-    const param = useParams();
+    // const getDetail= async()=>{
+    //     const api = await fetch (`https://api.spoonacular.com/recipes/${name}/information?apiKey=${process.env.REACT_APP_API_KEY}`);
+    //     const detailData = await api.json();
+    //     localStorage.setItem("detail", JSON.stringify(detailData))
+    //     setDetail(detailData);
+    //     console.log(detailData);
+    //     setInstructions(detailData?.extendedIngredients);
+    //     console.log(instructions);
+    //   }
+      const { name } = useParams();
 
-    const getDetail= async()=>{
-        const api = await fetch (`https://api.spoonacular.com/recipes/${param.name}/information?apiKey=${process.env.REACT_APP_API_KEY}`);
-        const detailData = await api.json();
-        localStorage.setItem("detail", JSON.stringify(detailData))
-        setDetail(detailData);
-        console.log(detailData);
-        setInstructions(detailData.extendedIngredients);
-        console.log(instructions);
-      }
-    
-      // const [section, setSection]= useState({students:["pengu", "tingu"],
-      //                                        section:"" });
-      //  const getSection = async()=>{
-      //   const api = await fetch (`secret_api`);
-      //   const detailData = await api.json();
-      //   setSection(
-      //        {section: detailData.section})
-      //   }
-            
-         
-      console.log(active)
-    useEffect(()=>{
-          getDetail();
-    }, [param.name]);
+      useEffect(() => {
+        async function fetchDetail() {
+          const api = await fetch(
+            `https://api.spoonacular.com/recipes/${name}/information?apiKey=${process.env.REACT_APP_API_KEY}`
+          );
+          const detailData = await api.json();
+          localStorage.setItem("detail", JSON.stringify(detailData));
+          setDetail(detailData);
+          setInstructions(detailData.extendedIngredients || []);
+        }
+
+        if (name) fetchDetail();
+      }, [name]);
+
 
   return (  
       <FlexCol>

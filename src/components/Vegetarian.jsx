@@ -19,7 +19,7 @@ export default function Vegetarian() {
 
      const check = localStorage.getItem("Veggie")
 
-      if(check){
+      if(check && check !== "undefined"){
         setVeggie(JSON.parse(check));
       }
       else{
@@ -44,7 +44,7 @@ export default function Vegetarian() {
                   arrows:true,
                   pagiination:false,
                   drag:true,
-                  gap:'0.5rem'}}
+                  gap:'1rem'}}
               >
               {Veggie.map((recipe) =>{
                       
@@ -78,12 +78,12 @@ export default function Vegetarian() {
   `
   const Wrapper= styled.div`
      
-      margin: 4rem 0rem
+      margin: 4rem 4rem
      `
 
   const Card = styled.div`
-       height:23vw;
-       width:20vw;
+       height:20vw;
+      
        background-color:yellow;
        aspect-ratio:9:1;
        border-radius:2rem;
@@ -157,5 +157,5 @@ const Gradient = styled.div`
         position:absolute;
         height:100%;
         width:100%;
-        background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.5));
+        background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.35));
 `

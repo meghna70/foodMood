@@ -1,169 +1,135 @@
 import { useEffect, useState } from "react";
-import styled from "styled-components";
-import { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
-import '@splidejs/react-splide/css';
-import { useMediaQuery } from 'usehooks-ts';
-import { Link } from "react-router-dom";
+import "@splidejs/react-splide/css";
+import { useMediaQuery } from "usehooks-ts";
+import RecipeCard from "./RecipeCard";
+import bg7 from "../bg-7.png";
+
+/* ---------- Splide Layout Logic ---------- */
+const getSplideLayout = (matchesFirst, matches, matches_2) => {
+  const gap = matchesFirst ? "0.5rem" : "0.6rem";
+  const hasGap = gap !== "0rem";
+
+  const basePerPage = matchesFirst ? 4 : matches ? 3 : matches_2?  2: 1;
+  const perPage = basePerPage;
+
+  return { perPage, gap };
+};
 
 export default function Trending() {
+  const matches = useMediaQuery("(min-width: 786px)");
+  const matches_2 = useMediaQuery("(min-width: 500px)");
+  const matchesFirst = useMediaQuery("(min-width: 1400px)");
+  const [trending, setTrending] = useState([]);
 
-  const matches = useMediaQuery('(min-width: 768px)')
-  const [trending, setTrending]= useState([]);
+  const { perPage, gap } = getSplideLayout(matchesFirst, matches, matches_2);
 
-   useEffect( () => {
-    getTrending();
-   } , [])
+  useEffect(() => {
+    fetchTrending();
+  }, []);
 
-  const getTrending= async()=>{
+  const fetchTrending = async () => {
+    const cached = localStorage.getItem("trending");
 
-     const check = localStorage.getItem("trending")
+    if (cached && cached !== "undefined") {
+      setTrending(JSON.parse(cached));
+      return;
+    }
 
-      if(check){
-        setTrending(JSON.parse(check));
-      }
-      else{
-        
-     const api= await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=9`);
-     const data= await api.json();
+    try {
+      const res = await fetch(
+        `https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=9`
+      );
+      const data = await res.json();
+      localStorage.setItem("trending", JSON.stringify(data.recipes));
+      setTrending(data.recipes);
+    } catch (err) {
+      console.error("Failed to fetch trending recipes", err);
+    }
+  };
 
-     localStorage.setItem("trending", JSON.stringify(data.recipes))
-     console.log(data);
-     console.log("here");
-     setTrending(data.recipes)
-      }
-  }
   return (
-    <div>
-      
-            <Wrapper>
-             <GlobalStyle/>
-              <h1>Trending</h1>
-              <Splide
-                  options={{
-                  perPage: matches ? 2 : 3,
-                  arrows:true,
-                  pagiination:false,
-                  drag:true,
-                  gap:'0.5rem'}}
-              >
-              {trending.map((recipe) =>{
-                      
-                      return(
-                        <SplideSlide key={recipe.id}>
-                           <Card>
-                            <Link to={'/recipe/'+ recipe.id}>
-                              <p>{recipe.title}</p>
-                              <img src={recipe.image} alt={recipe.title}/>
-                             <Gradient/>
-                              </Link>
-                            </Card>
-                        </SplideSlide>
-                      );
-              })}
-              </Splide>
-            </Wrapper>
-         
-    </div>
-  )
-      }
+    <Wrapper>
+      <GlobalStyle />
 
-      const GlobalStyle = createGlobalStyle`
-      body{
-        font-family: 'Fredoka', sans-serif;
-      }
-      p{
-        font-family: 'Fredoka', sans-serif;
-      }
-  `
-  const Wrapper= styled.div`
-     
-      margin: 4rem 0rem
-  `
+      <BgWrap>
+        <Img1 src={bg7} />
+      </BgWrap>
 
-  const Card = styled.div`
+      <h1>Trending</h1>
 
-       height:18vw;
-       width:18vw;
-       background-color:yellow;
-      
-       border-radius:2rem;
-       overflow:hidden;
-       position: relative;
-       margin right:3rem;
+      <Splide
+        options={{
+          perPage,
+          gap,
+          arrows: true,
+          pagination: false,
+          drag: true,
+        }}
+      >
+        {trending.map((recipe) => (
+          <SplideSlide key={recipe.id}>
+            <RecipeCard
+              id={recipe.id}
+              title={recipe.title}
+              rimg={recipe.image}
+              vegetarian={recipe.vegetarian}
+              vegan={recipe.vegan}
+              veryHealthy={recipe.veryHealthy}
+              readyInMinutes={recipe.readyInMinutes}
+              servings={recipe.servings}
+              aggregateLikes={recipe.aggregateLikes}
+              cuisine={recipe.cuisines?.[0]}
+            />
+          </SplideSlide>
+        ))}
+      </Splide>
+    </Wrapper>
+  );
+}
 
+/* ---------- Styles ---------- */
 
-       height:20vw;
-       width:36vw;
-       background-color:white;
+const GlobalStyle = createGlobalStyle`
+  body {
+    font-family: 'Fredoka', sans-serif;
+  }
+`;
 
-       @media (max-width: 1024px) {
-        height:10rem;
-        width:12rem;
-      }
-       @media (max-width: 900px) {
-        height:10rem;
-        width:10rem;
-      }
-      @media (max-width: 768px) {
-        height:10rem;
-        width:10rem;
-      }
+const Wrapper = styled.div`
+  margin: 20% 10%;
 
-      @media (max-width: 600px) {
-        height:10rem;
-        width:10rem;
-        font-size:1em;
-        border-radius:0.5rem;
-      }
+  h1 {
+    margin-bottom: 1.5rem;
+  }
 
-      @media (max-width: 600px) {
-        height:10rem;
-        width:9em;
-        font-size:1em;
-        border-radius:0.5rem;
-      }
+  .splide__pagination {
+    margin-top: 12px;
+  }
+`;
 
-       img{
-        width:100%;
-        height:100%;
-        object-fit:cover;
-        border-radius:2rem;
-        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-        position:absolute;
-        left:0;
-        
+const BgWrap = styled.div`
+  position: relative;
+  width: 100%;
+`;
 
-        @media (max-width: 630px) {
-          font-size:1em;
-          border-radius:0.5rem;
-        }
-       }
+const Img1 = styled.img`
+  position: absolute;
+  left: -18%;
+  bottom: -40vh;
+  z-index: -2;
+  opacity: 0.6;
+  transform: rotate(50deg);
+  filter: drop-shadow(0 30px 20px rgba(206, 196, 196, 0.5));
+   filter: blur(4px);
+  @media (max-width: 800px) {
+    width: 250px;
+    left: -20%;
+    bottom: 28%;
+  }
 
-       p{
-        position:absolute;
-        z-index:10;
-        left:50%;
-        bottom:0%;
-        transform:translate(-50%,50%);
-        color:white;
-        width:100%;
-        height:40%;
-        text-align:center;
-        font-weight:600;
-        font-size:1rem;
-
-        @media (max-width: 1024px) {
-          transform:translate(-50%,40%);
-          
-        }
-
-       }
-  `
-const Gradient = styled.div`
-        z-index:3;
-        position:absolute;
-        height:100%;
-        width:100%;
-        background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.5));
-`
+  @media (max-width: 500px) {
+    filter: blur(0.4px);
+  }
+`;

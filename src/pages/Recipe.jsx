@@ -57,7 +57,7 @@ export default function Recipe() {
        <RecipeDetails>
          <h1>{detail.title}</h1>
          <FlexRow>
-         <h3><FaStar/> Likes: {detail.aggregateLikes * 123}</h3>
+         <h3><FaStar/> Likes: {detail.aggregateLikes}</h3>
          <h3><BiDish/> Time : {detail.cookingMinutes+ detail.preparationMinutes + detail.readyInMinutes}  min</h3>
          <h3><FaUtensils/> Serving : {detail.servings}</h3>
          </FlexRow>
@@ -99,6 +99,8 @@ const FlexCol= styled.div`
     margin-bottom:50px;
     background: linear-gradient( #FACB80, white);
     background:#FBD8B0;
+    background-color:#fef5ed;
+     background: linear-gradient( #ebceb5ff, white);
     @media(max-width: 600px){
       flex-direction:column;
       align-items: center;
@@ -114,7 +116,7 @@ const FlexRow= styled.div`
       height: 40px;
       border-radius: 2rem;
       border: 1px solid #B52B40;
-      background-color: rgba(255,255,255, 0.3);
+      background-color:  rgba(255,255,255, 0.3);
       font-family: Fredoka ;
       margin: 20px 40px;
       cursor:pointer;
